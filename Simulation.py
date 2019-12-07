@@ -38,12 +38,21 @@ class Simulation:
 
         for i in range(self.initial_vaccinated):
             person = Person(True, None)
-            self.population.append(person)
-        	
+            self.population.append(person)  
+        
     def print_population(self):
         '''Prints out every person in the population and their current attributes'''
         #TODO: finish this method
-        pass
+        for i in range(len(self.population)):
+            print(self.population[i])
+
+        # for person in self.population:
+        #     print(person)
+
+
+        # for x in range(len(self.population)):
+        #     print(self.popluation[x].person)
+
 
     def get_infected(self):
         '''Gets all the infected people from the population and returns them as a list'''
@@ -61,34 +70,34 @@ class Simulation:
         pass
         
 
-    def run(self):
-        ''' This method should run the simulation until all requirements for ending
-        the simulation are met.
-        '''
+    # def run(self):
+    #     ''' This method should run the simulation until all requirements for ending
+    #     the simulation are met.
+    #     '''
         
-        self.create_population()
-        random.shuffle(self.population)
+    #     self.create_population()
+    #     random.shuffle(self.population)
 
-        self.print_population()
+    #     self.print_population()
         
-        time_step_counter = 0
-        should_continue = True
+    #     time_step_counter = 0
+    #     should_continue = True
 
-        self.file_writer.init_file(self.virus, self.population_size, self.initial_vaccinated, self.initial_healthy, self.initial_infected)
+    #     self.file_writer.init_file(self.virus, self.population_size, self.initial_vaccinated, self.initial_healthy, self.initial_infected)
 
-        #keep looping until the simulation ends
-        while self.simulation_should_continue():
+    #     #keep looping until the simulation ends
+    #     while self.simulation_should_continue():
 
-            #save the current infected
-            old_infected = self.get_infected()
-            self.time_step(old_infected)
-            #time step will create newly infected people, just determine the survivial of the previous infected people
-            self.determine_survival(old_infected)
+    #         #save the current infected
+    #         old_infected = self.get_infected()
+    #         self.time_step(old_infected)
+    #         #time step will create newly infected people, just determine the survivial of the previous infected people
+    #         self.determine_survival(old_infected)
 
-            time_step_counter += 1
+    #         time_step_counter += 1
 
-        print(f'The simulation has ended after {time_step_counter} turns.')
-        self.file_writer.write_results(time_step_counter, self.total_dead, self.total_vaccinated)
+    #     print(f'The simulation has ended after {time_step_counter} turns.')
+    #     self.file_writer.write_results(time_step_counter, self.total_dead, self.total_vaccinated)
 
     def determine_survival(self, infected):
         '''Check if the current infected people survive their infection
@@ -145,4 +154,7 @@ if __name__ == "__main__":
     simulation = Simulation(initial_vaccinated, initial_infected, initial_healthy, virus, "results.txt")
 
     #run the simulation
-    simulation.run()
+    # simulation.run()
+
+    simulation.create_population()
+    print(simulation.print_population())
