@@ -46,10 +46,6 @@ The program consists of 4 classes: `Person`, `Virus`, `Simulation`, and `FileWri
 
 5. You will also need to submit two result files simulating a population of 10 and then a population of 100. You are free to make up any virus's you choose.
 
-## Project Submission
-
-This project will be done via pair programming with randomly assinged pairs. In order successfully pass this project you will need to fill out the corresponding project rubric. 
-One partner will submit the project github repo link on trinket by the deadline and indicate who their partner was as well. 
 
 ### Stretch Challenges
 
